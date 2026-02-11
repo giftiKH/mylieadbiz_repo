@@ -1,260 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=1200">
-    <title>The Monolith | Haute Couture</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-    <style>
-        /* CORE DESIGN SYSTEM */
-        :root {
-            --black: #000000;
-            --white: #FFFFFF;
-            --soft-gray: #F2F2F2;
-            --mid-gray: #CCCCCC;
-            --serif: 'Playfair Display', serif;
-            --sans: 'Inter', sans-serif;
-        }
+  <meta charset="UTF-8">
+  <title>Designer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #000;
+      line-height: 1.6;
+    }
 
-        body {
-            background-color: var(--white);
-            color: var(--black);
-            font-family: var(--sans);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
+    h1,h2,h3,h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
 
-        .container { width: 100%; max-width: 1440px; margin: 0 auto; padding: 0 80px; }
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        img { display: block; width: 100%; filter: grayscale(100%); transition: 0.7s ease; }
-        
-        /* Typography */
-        h1, h2, h3 { font-family: var(--serif); font-weight: 400; text-transform: uppercase; letter-spacing: 3px; }
-        .btn {
-            display: inline-block;
-            padding: 15px 40px;
-            border: 1px solid var(--black);
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 20px;
-            cursor: pointer;
-        }
-        .btn:hover { background: var(--black); color: var(--white); }
+    a { color: inherit; text-decoration: none; }
 
-        /* HEADER */
-        header {
-            height: 120px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: absolute;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-            background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-        }
-        .logo img { height: 35px; width: auto; }
-        nav ul { display: flex; list-style: none; gap: 50px; }
-        nav ul li { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; }
+    img { max-width: 100%; display: block; }
 
-        /* HERO SECTION */
-        .hero {
-            height: 100vh;
-            background: var(--soft-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
-        .hero-content { position: relative; text-align: center; color: var(--black); z-index: 2; }
-        .hero-content h1 { font-size: 82px; margin-bottom: 10px; }
-        .hero-content p { font-size: 14px; letter-spacing: 5px; text-transform: uppercase; }
+    .container {
+      width: 90%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
 
-        /* FEATURED DESIGNS */
-        .featured { padding: 140px 0; }
-        .section-header { text-align: center; margin-bottom: 80px; }
-        .section-header h2 { font-size: 32px; margin-bottom: 15px; }
-        .section-header p { font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 2px; }
+    /* ===== HEADER ===== */
+    header {
+      border-bottom: 1px solid #eee;
+      padding: 24px 0;
+    }
 
-        .featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-        .card { position: relative; overflow: hidden; }
-        .card:hover img { transform: scale(1.05); }
-        .card-info { padding: 25px 0; border-bottom: 1px solid var(--soft-gray); }
-        .card-info h3 { font-size: 18px; margin-bottom: 5px; }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        /* EVENTS & SHOWS */
-        .events { background: #000; color: #fff; padding: 140px 0; }
-        .events h2 { color: var(--white); }
-        .event-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
-        .event-item { display: flex; gap: 30px; align-items: flex-start; }
-        .event-img { width: 200px; height: 260px; object-fit: cover; background: #222; }
-        .event-text { flex: 1; }
-        .event-text h3 { margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        .event-text p { font-size: 13px; color: #999; margin-bottom: 20px; }
-        .link-text { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid var(--white); padding-bottom: 3px; }
+    .logo img { height: 48px; }
 
-        /* DESIGNER INTRO */
-        .designer { padding: 140px 0; display: flex; align-items: center; gap: 100px; }
-        .designer-img { flex: 1; background: var(--soft-gray); height: 600px; }
-        .designer-img img { height: 100%; object-fit: cover; }
-        .designer-content { flex: 1; }
-        .designer-content h2 { font-size: 48px; margin-bottom: 30px; }
-        .designer-content p { font-size: 16px; margin-bottom: 25px; line-height: 1.8; color: #444; }
+    nav a {
+      margin-left: 20px;
+      padding: 8px 14px;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
 
-        /* FOOTER */
-        footer { padding: 100px 0 50px 0; border-top: 1px solid var(--soft-gray); }
-        .footer-main { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 80px; }
-        .footer-col h4 { font-size: 11px; text-transform: uppercase; margin-bottom: 30px; letter-spacing: 2px; color: var(--mid-gray); }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 15px; font-size: 13px; }
-        .footer-bottom { padding-top: 40px; border-top: 1px solid var(--soft-gray); display: flex; justify-content: space-between; font-size: 10px; text-transform: uppercase; color: #999; letter-spacing: 1px; }
+    nav a:hover {
+      background: #f2f2f2;
+    }
 
-    </style>
+    nav a.active {
+      background: #000;
+      color: #fff;
+    }
+
+    /* ===== MAIN PLACEHOLDERS ===== */
+    main {
+      padding: 120px 0;
+    }
+
+    .section-placeholder {
+      height: 240px;
+      border: 1px dashed #ccc;
+      margin-bottom: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      letter-spacing: 2px;
+      color: #777;
+      text-transform: uppercase;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #111;
+      color: #eee;
+      padding: 80px 0 40px;
+      margin-top: 120px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+    }
+
+    .footer-brand h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .footer-links a,
+    .footer-social a {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #ccc;
+    }
+
+    .footer-links a:hover,
+    .footer-social a:hover {
+      color: #fff;
+    }
+
+    .contact-info p {
+      font-size: 13px;
+      margin-bottom: 8px;
+      color: #ccc;
+    }
+
+    .footer-social a {
+      display: inline-block;
+      margin-right: 12px;
+      font-size: 18px;
+    }
+
+    .footer-bottom {
+      margin-top: 60px;
+      font-size: 12px;
+      color: #777;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
-    <header class="container">
-        <div class="logo">
-            <img src="https://via.placeholder.com/180x40/000000/FFFFFF?text=LOGO" alt="Logo">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#">Collections</a></li>
-                <li><a href="#">Runway</a></li>
-                <li><a href="#">Bespoke</a></li>
-                <li><a href="#">Journal</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+  <div class="container header-inner">
+    <div class="logo">
+      <img src="logo.png" alt="Designer Logo">
+    </div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Contact</a>
+      <a href="social.html">Social</a>
+    </nav>
+  </div>
+</header>
 
-    <section class="hero">
-        <img src="https://via.placeholder.com/1920x1080/F2F2F2/000000?text=Hero+Editorial+Photography" class="hero-img" alt="Hero Image">
-        <div class="hero-content">
-            <p>Atelier Autumn / Winter</p>
-            <h1>Silent Luxury</h1>
-            <a href="#" class="btn" style="border-color: black;">Discover More</a>
-        </div>
-    </section>
+<main class="container">
+  <div class="section-placeholder">Section 1 Here</div>
+  <div class="section-placeholder">Section 2 Here</div>
+  <div class="section-placeholder">Section 3 Here</div>
+</main>
 
-    <section class="container featured">
-        <div class="section-header">
-            <p>The Latest</p>
-            <h2>Featured Designs</h2>
-        </div>
-        <div class="featured-grid">
-            <div class="card">
-                <img src="https://via.placeholder.com/600x800/F2F2F2/000000?text=Collection+01" alt="Design 1">
-                <div class="card-info">
-                    <h3>Wool Overcoat No. 4</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                </div>
-                <a href="#" class="btn">View Collection</a>
-            </div>
-            <div class="card">
-                <img src="https://via.placeholder.com/600x800/F2F2F2/000000?text=Collection+02" alt="Design 2">
-                <div class="card-info">
-                    <h3>Silk Evening Gown</h3>
-                    <p>Consectetur adipiscing elit.</p>
-                </div>
-                <a href="#" class="btn">View Collection</a>
-            </div>
-            <div class="card">
-                <img src="https://via.placeholder.com/600x800/F2F2F2/000000?text=Collection+03" alt="Design 3">
-                <div class="card-info">
-                    <h3>Structured Blazer</h3>
-                    <p>Vestibulum vel elit ut justo.</p>
-                </div>
-                <a href="#" class="btn">View Collection</a>
-            </div>
-        </div>
-    </section>
+<footer>
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <h3>Lorem Ipsum</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
 
-    <section class="events">
-        <div class="container">
-            <div class="section-header">
-                <p style="color: #666;">Global Schedule</p>
-                <h2>Events & Shows</h2>
-            </div>
-            <div class="event-grid">
-                <div class="event-item">
-                    <img src="https://via.placeholder.com/200x260/333333/FFFFFF?text=Paris" class="event-img" alt="Event">
-                    <div class="event-text">
-                        <h3>Paris Fashion Week</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel elit ut justo vehicula pulvinar.</p>
-                        <a href="#" class="link-text">Read More</a>
-                    </div>
-                </div>
-                <div class="event-item">
-                    <img src="https://via.placeholder.com/200x260/333333/FFFFFF?text=Milan" class="event-img" alt="Event">
-                    <div class="event-text">
-                        <h3>Milan Private Gallery</h3>
-                        <p>Proin non sem sit amet nisi elementum hendrerit. Lorem ipsum dolor sit amet consectetur.</p>
-                        <a href="#" class="link-text">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="contact-info">
+      <p>📍 Address: Lorem Street 123, City</p>
+      <p>📞 Phone: +251 900 000 000</p>
+      <p>✉ Email: hello@example.com</p>
+    </div>
 
-    <section class="container designer">
-        <div class="designer-img">
-            <img src="https://via.placeholder.com/800x1000/F2F2F2/000000?text=Portrait" alt="The Designer">
-        </div>
-        <div class="designer-content">
-            <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 11px; margin-bottom: 10px;">The Visionary</p>
-            <h2>Behind the Scissor</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <a href="#" class="btn">Read Story</a>
-        </div>
-    </section>
+    <div class="footer-social">
+      <a href="#">📸 Instagram</a>
+      <a href="#">🎵 TikTok</a>
+      <a href="#">📘 Facebook</a>
+      <a href="#">💼 LinkedIn</a>
+    </div>
+  </div>
 
-    <footer class="container">
-        <div class="footer-main">
-            <div class="footer-col">
-                <h3 style="font-family: var(--serif); font-size: 24px; margin-bottom: 20px;">MONOLITH</h3>
-                <p style="color: #888; font-size: 13px;">Defining the intersection of modern architecture and wearable art since 2012.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Sustainability</a></li>
-                    <li><a href="#">Press</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Shipping</a></li>
-                    <li><a href="#">Returns</a></li>
-                    <li><a href="#">Size Guide</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Connect</h4>
-                <ul>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">Newsletter</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 MONOLITH ATELIER. ALL RIGHTS RESERVED.</p>
-            <p>Privacy Policy &nbsp; / &nbsp; Terms of Service</p>
-        </div>
-    </footer>
+  <div class="footer-bottom">
+    © Lorem Ipsum — All Rights Reserved
+  </div>
+</footer>
 
 </body>
 </html>
