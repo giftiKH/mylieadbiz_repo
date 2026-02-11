@@ -1,35 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Master Template</title>
-    <style>
-        body { font-family: Arial, sans-serif; background:#fafafa; margin:0; }
-        header, footer { background:#111; color:#fff; padding:20px; text-align:center; }
-        main { padding:40px; }
-        nav a { color:#fff; margin:0 10px; text-decoration:none; }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Brand Name</h1>
-        <nav>
-            <a href="home.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="event.html">Events</a>
-            <a href="social.html">Social</a>
-            <a href="contuct.html">Contact</a>
-        </nav>
-    </header>
+<style>
+    /* Internal Styles for Demo */
+    :root {
+        --black: #000000;
+        --white: #FFFFFF;
+        --light-gray: #F2F2F2;
+        --border-gray: #CCCCCC;
+        --serif: 'Playfair Display', serif;
+        --sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
 
-    <main>
-        <h2>Master Template</h2>
-        <p>This is the base layout structure for all pages.</p>
-    </main>
+    .editorial-hero {
+        background-color: var(--white);
+        padding: 80px 100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 80vh;
+        box-sizing: border-box;
+    }
 
-    <footer>
-        <p>© 2026 Brand Name</p>
-    </footer>
-</body>
-</html>
+    .hero-content {
+        flex: 1;
+        padding-right: 120px;
+    }
+
+    .hero-eyebrow {
+        font-family: var(--sans);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        color: var(--black);
+        margin-bottom: 40px;
+        display: block;
+    }
+
+    .hero-title {
+        font-family: var(--serif);
+        font-size: 84px;
+        line-height: 1.05;
+        font-weight: 400;
+        margin-bottom: 30px;
+        color: var(--black);
+    }
+
+    .hero-description {
+        font-family: var(--sans);
+        font-size: 16px;
+        line-height: 1.8;
+        color: #444444;
+        max-width: 450px;
+        margin-bottom: 50px;
+    }
+
+    .hero-cta {
+        display: inline-block;
+        font-family: var(--sans);
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--white);
+        background-color: var(--black);
+        padding: 20px 45px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 1px solid var(--black);
+    }
+
+    .hero-cta:hover {
+        background-color: var(--white);
+        color: var(--black);
+    }
+
+    .hero-image-wrapper {
+        flex: 1;
+        position: relative;
+        text-align: right;
+    }
+
+    .hero-image {
+        width: 100%;
+        max-width: 550px;
+        height: 700px;
+        object-fit: cover;
+        filter: grayscale(100%);
+    }
+
+    .image-caption {
+        position: absolute;
+        bottom: -40px;
+        right: 0;
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 14px;
+        color: var(--border-gray);
+    }
+
+    /* Decorative border element */
+    .editorial-hero::after {
+        content: "";
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        width: 200px;
+        height: 1px;
+        background-color: var(--border-gray);
+    }
+</style>
+
+<section class="editorial-hero">
+    <div class="hero-content">
+        <span class="hero-eyebrow">Collection No. 22</span>
+        <h1 class="hero-title">Refined<br>Minimalism</h1>
+        <p class="hero-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+        </p>
+        <a href="#" class="hero-cta">Explore Lookbook</a>
+    </div>
+
+    <div class="hero-image-wrapper">
+        <img src="https://via.placeholder.com/550x700/F2F2F2/000000?text=Editorial+Photography" alt="Fashion Editorial" class="hero-image">
+        <span class="image-caption">Lorem ipsum dolor sit amet — 2026</span>
+    </div>
+</section>
