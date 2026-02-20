@@ -1,0 +1,13 @@
+{
+  "slug": "leather-bag",
+  "name": "Leather Travel Bag",
+  "year": "2024",
+  "thumbnail": "/uploads/bag-thumb.jpg",
+  "hero": "/uploads/bag-hero.jpg",
+  "description": ["Hand stitched", "Full grain leather"],
+  "gallery": [
+    "/uploads/bag1.jpg",
+    "/uploads/bag2.jpg"
+  ],
+  "youtube": "https://www.youtube.com/embed/VIDEO_ID"
+}
